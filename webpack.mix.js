@@ -10,6 +10,7 @@ mix.autoload({
 });
 
 mix
+    .css('resources/css/list_styles.css', 'public/css')
     .css('resources/css/auth_styles.css', 'public/css')
     .js('resources/js/create_list.js', 'public/js')
     .js('resources/js/bootstrap-inputs.js', 'public/js')
