@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ListController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (){
+    return redirect('lists');
+});
+
+Route::resource('lists',ListController::class)->middleware('auth');
+
+Route::post('lists/delete/article', [ListController::class, 'deleteArticle'])->middleware('auth');
+Route::post('lists/delete/article/image', [ListController::class, 'deleteImage'])->middleware('auth');
+
+Route::name('user.')->group(function () {
+    Route::controller(UserController::class)->group(function () {
+        //регистрация
+        Route::get('/registration', 'showRegistrationView')->name('showRegistrationView');
+        Route::post('/registration', 'register')->name('register');
+        //авторизация
+        Route::get('/login', 'showLoginView')->name('showLoginView');
+        Route::post('/login', 'login')->name('login');
+        //выход
+        Route::get('/logout', 'logout')->name('logout');
+    });
 });
