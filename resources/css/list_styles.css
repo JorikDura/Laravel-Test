@@ -1,0 +1,9 @@
+.media-object:hover {
+    background-color: transparent;
+    opacity: 0.7;
+}
+
+.media:hover {
+    background-color: transparent;
+    opacity: 0.8;
+}

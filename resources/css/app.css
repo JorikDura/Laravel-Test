@@ -1,0 +1,6 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap-tagsinput-2021/dist/bootstrap-tagsinput.css";
+
+.bootstrap-tagsinput .tag {
+    color: #000000;
+}
